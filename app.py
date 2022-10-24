@@ -14,7 +14,6 @@ import matplotlib.pyplot as plt
 import base64
 import sqlite3
 
-fileKamus = 'resource/new_kamusalay.csv'
 app.json_encoder = LazyJSONEncoder
 swagger_template = dict(
     info = {
@@ -93,7 +92,7 @@ def cleanStopWord(text):
     return ' '.join(words)
 
 def checkDataType(file):
-    with open(fileKamus, 'rb') as rawdata:
+    with open(file, 'rb') as rawdata:
         dataType = chardet.detect(rawdata.read(100000))
         return dataType['encoding']
 
